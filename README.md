@@ -40,7 +40,8 @@ A native macOS menu-bar app that plays video wallpapers behind your desktop icon
 - Still images (JPG, PNG, HEIC) as a zero-cost option
 
 **Lock screen and screen saver**
-- The wallpaper's still frame (you pick the frame) becomes your lock screen, login and Mission Control background
+- **Animated lock screen (experimental):** your video plays on the Mac's lock screen, even when Elytra is closed. One click to turn it on, one click to restore Apple's wallpaper
+- Or keep it simple: the wallpaper's still frame (you pick the frame) becomes your lock screen, login and Mission Control background
 - Optional bundled screen saver that plays your current wallpaper when the Mac is idle
 - Your original wallpaper comes back when you quit
 
@@ -86,8 +87,8 @@ Elytra has no network code and no analytics. Your wallpapers stay in `~/Library/
 
 ## FAQ
 
-**Can Elytra animate the lock screen itself?**
-macOS has no public way for apps to do that. Elytra uses a still frame of your wallpaper for the lock screen, plus an optional animated screen saver for when the Mac is idle.
+**Can Elytra animate the lock screen?**
+Yes, as an experimental option. macOS has no official API for this, so Elytra uses the same approach as other wallpaper apps: it re-encodes your video once (about 2 minutes) into the format of Apple's Aerial wallpapers and swaps it into one Aerial slot. A macOS update can undo it; turn on **Re-apply after macOS updates** if you want Elytra to put it back automatically. **Restore Apple Wallpaper** reverts everything.
 
 **Does it slow down games or video calls?**
 With the default *Pause when covered* mode, a full-screen or maximised window pauses the wallpaper, and after five minutes the video is unloaded from memory entirely.

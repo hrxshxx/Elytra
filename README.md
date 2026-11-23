@@ -18,6 +18,7 @@ A native macOS menu-bar app that plays video wallpapers behind your desktop icon
 - **Uses almost no power.** Playback uses the Mac's hardware media engine. It pauses itself when windows cover the desktop, on battery, in Low Power Mode, under thermal pressure or when the screen locks, and after five minutes paused it unloads the video completely. **0% CPU when paused · about 2% while playing 4K.**
 - **Native and light.** SwiftUI and AVFoundation, Liquid Glass from the system itself. No Electron, no web views, no background services. The whole app is under 25 MB.
 - **Plays almost anything.** Drop in MP4, MOV, WebM, MKV, AVI, GIF, animated WebP and more. Anything the Mac can't hardware-decode is converted once, on import, to efficient HEVC.
+- **One simple window.** Library and Settings live together in one window that shows in the Dock while it's open, then tucks back into the menu bar when you close it.
 - **You stay in control.** Pick when wallpapers play, per display and per wallpaper, with global shortcuts for pause and next.
 
 ## Features
@@ -68,8 +69,8 @@ A native macOS menu-bar app that plays video wallpapers behind your desktop icon
 
 1. Download **Elytra-x.y.z.dmg** from [Releases](../../releases/latest).
 2. Open it and drag **Elytra** into **Applications**.
-3. Launch Elytra. It lives in the menu bar and has no Dock icon.
-4. Click the menu bar icon, choose **Library…**, and drop in a video.
+3. Launch Elytra. Its window opens with your Library and Settings side by side, and it shows in the Dock while the window is open.
+4. Drop in a video. Close the window and Elytra keeps running quietly in the menu bar; choose **Open Elytra** there (or click it in the Dock) to bring it back.
 
 > This build is not notarised. If macOS says it can't verify the developer, right-click **Elytra** in Applications, choose **Open**, then **Open** again. You only need to do this once.
 
@@ -79,7 +80,7 @@ A native macOS menu-bar app that plays video wallpapers behind your desktop icon
 
 - **HEVC** at your screen's resolution is the most efficient format.
 - Short loops (10–30 seconds) at 24–30 fps look smooth and cost little.
-- If your menu bar is crowded, the notch can hide the Elytra icon. Open Elytra again from Finder or Spotlight to get to Settings.
+- If your menu bar is crowded, the notch can hide the Elytra icon. Open Elytra again from the Dock, Finder or Spotlight.
 
 ## Privacy
 
@@ -88,7 +89,7 @@ Elytra has no network code and no analytics. Your wallpapers stay in `~/Library/
 ## FAQ
 
 **Can Elytra animate the lock screen?**
-Yes, as an experimental option. macOS has no official API for this, so Elytra uses the same approach as other wallpaper apps: it re-encodes your video once (about 2 minutes) into the format of Apple's Aerial wallpapers and swaps it into one Aerial slot. A macOS update can undo it; turn on **Re-apply after macOS updates** if you want Elytra to put it back automatically. **Restore Apple Wallpaper** reverts everything.
+Yes, as an experimental option. macOS has no official API for this, so Elytra uses the same approach as other wallpaper apps: it re-encodes your video once (about 2 minutes) into the format of Apple's Aerial wallpapers and swaps it into one Aerial slot. Each wallpaper is prepared once, so switching back to one you've used before is instant. While the Mac is locked, the desktop wallpaper and its sound pause, because the lock screen plays its own silent copy. A macOS update can undo it; turn on **Re-apply after macOS updates** if you want Elytra to put it back automatically. **Restore Apple Wallpaper** reverts everything.
 
 **Does it slow down games or video calls?**
 With the default *Pause when covered* mode, a full-screen or maximised window pauses the wallpaper, and after five minutes the video is unloaded from memory entirely.
